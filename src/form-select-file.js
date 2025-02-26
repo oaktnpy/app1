@@ -3,14 +3,14 @@ import React from "react";
 export default function FormSelectFile() {
     const inputFile = React.useRef()
     const selectMaxNumFiles = React.useRef()
-    const selectMaxSizeFiles = React.useRef()
+    const selectMaxSize = React.useRef()
 
     let maxNumfiles = [1,2,3,4,5]
-    let maxSizefiles = [50, 100, 200, 500, 1000]
+    let maxSize = [50, 100, 200, 500, 1000]
 
     const onClickButton = () => {
         let maxNumFiles = selectMaxNumFiles.current.value
-        let maxSize = selectMaxSizeFiles.current.value
+        let maxSize = selectMaxSize.current.value
         if (inputFile.current.files.length > maxNumFiles) {
             alert(`เลือกได้ไม่เกิน ${maxNumFiles} ไฟล์`)
             return
@@ -30,7 +30,7 @@ export default function FormSelectFile() {
             <form>
                 <div className="form-group mb-3">
                     <label htmlFor="maxNumFiles" className="form-label">จำนวนไฟล์สูงสุด</label>
-                    <select id="maxFileNum" className="form-select form-select-sm" ref={selectMaxNumFiles}>
+                    <select id="maxNumFiles" className="form-select form-select-sm" ref={selectMaxNumFiles}>
                         {
                             maxNumfiles.map(i => {
                                 return <option value={i}>{i}</option>
@@ -39,10 +39,10 @@ export default function FormSelectFile() {
                     </select>
                 </div>
                 <div className="form-group mb-3">
-                    <label htmlFor="maxSizeFiles" className="form-label">ขนาดไฟล์สูงสุด (KB)</label>
-                    <select id="maxFilSize" className="form-select form-select-sm" ref={selectMaxSizeFiles}>
+                    <label htmlFor="maxFileSize" className="form-label">ขนาดไฟล์สูงสุด (KB)</label>
+                    <select id="maxFileSize" className="form-select form-select-sm" ref={selectMaxSize}>
                         {
-                            maxSizefiles.map(i => {
+                            maxSize.map(i => {
                                 return <option value={i}>{i}</option>
                             })
                         }
