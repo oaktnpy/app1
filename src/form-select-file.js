@@ -18,7 +18,7 @@ export default function FormSelectFile() {
 
         for (let f of inputFile.current.files) {
             if (f.size > maxSize * 1000) {
-                alert(`ขนาดของแต่ละไฟล์ต้องไม่เกิน 50KB`)
+                alert(`ขนาดของแต่ละไฟล์ต้องไม่เกิน ${maxSize} KB`)
                 return
             }
         }
